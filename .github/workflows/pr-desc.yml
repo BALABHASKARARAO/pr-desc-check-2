@@ -5,10 +5,10 @@ on:
       - opened
       - edited
       - reopened
+
 jobs:
-  run:
-    runs-on: ubuntu-latest
+  publish:
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/checkout@v1
+      - uses: nouzbe/check-pull-request-description@v1.11
