@@ -1,1 +1,14 @@
-ii:wq
+name: "PR description check"
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
